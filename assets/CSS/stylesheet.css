@@ -1,10 +1,25 @@
 nav {
-    height: 25vh;
-    border: solid red 2px;
-    background-color: #064E54;
+  height: 180px;
+  background-color: #064e54;
+}
+
+nav h1 {
+  font-family: "Playfair Display", serif;
+  color: #9bc4bc;
+  font-size: 40px;
 }
 
 #start-button {
-    background-color: #FEB82C;
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 25px;
+  letter-spacing: 3px;
+  border-radius: 5px;
+  width: 125px;
+  background: rgb(254, 184, 44);
+  background: linear-gradient(
+    90deg,
+    rgba(254, 184, 44, 1) 10%,
+    rgba(255, 218, 145, 1) 50%,
+    rgba(254, 184, 44, 1) 90%
+  );
 }
-
