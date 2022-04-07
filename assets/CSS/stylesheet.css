@@ -20,21 +20,33 @@ main {
     rgba(216, 237, 238, 1) 0%,
     rgba(52, 181, 178, 1) 80%
   );
-  height: 100vh;
+  height: cal( 100vh );
 }
 
 main h1 {
   margin-top: 0;
 }
 
-.red, .green {
+/* .blue {
     border: solid 2px;
-    /* margin-top: 5%; */
+} */
+
+.box {
+    height: 60vh;
+    border: solid #9bc4bc 5px;
+    border-radius: 10px;
+    background: rgb(155,196,188);
+background: linear-gradient(90deg, rgba(155,196,188,0.7679665616246498) 20%, rgba(235,255,251,0.9500393907563025) 50%, rgba(155,196,188,0.7707676820728291) 80%);
+}
+
+.card {
+    height: 200px;
+    background-color: #07585F;
+    color: #9bc4bc;
 }
 
 
-#start-button {
-  /* font-family: "Nanum Myeongjo", serif; */
+#start-button, #reset-score {
   font-size: 25px;
   letter-spacing: 3px;
   border-radius: 5px;
@@ -46,4 +58,17 @@ main h1 {
     rgba(255, 218, 145, 1) 50%,
     rgba(254, 184, 44, 1) 90%
   );
+}
+
+#reset-score {
+    font-size: 15px;
+    border-radius: 5px;
+    height: 50px;
+}
+
+#timer {
+    text-align: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bolder;
 }
