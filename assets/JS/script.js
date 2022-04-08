@@ -9,6 +9,7 @@ var wordsArray = [
 ];
 
 var startBtn = document.getElementById("start-button");
+var timerEL = document.getElementById("timer");
 
 var timeLeft = 10;
 
@@ -19,8 +20,8 @@ startBtn.addEventListener("click", function () {
       clearInterval(timeInterval);
       console.log("Times up!");
     } else {
-      console.log(timeLeft);
-      timeLeft--;
+        timeLeft--;
+      timerEL.innerHTML = timeLeft + " seconds remaining";
     }
   }, 1000);
 });
