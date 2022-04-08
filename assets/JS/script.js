@@ -10,11 +10,15 @@ var wordsArray = [
 
 var startBtn = document.getElementById("start-button");
 var timerEL = document.getElementById("timer");
+var currentWord = document.getElementById("hidden-word");
+
 
 var timeLeft = 10;
+var hiddenWord = [];
+var lettersGuessed = [];
 
 startBtn.addEventListener("click", function () {
-  console.log("clicked");
+    displayWord();
   var timeInterval = setInterval(function () {
     if (timeLeft === 0) {
       clearInterval(timeInterval);
@@ -25,3 +29,15 @@ startBtn.addEventListener("click", function () {
     }
   }, 1000);
 });
+
+function displayWord() {
+    hiddenWord.push(wordsArray[0]);
+currentWord.innerHTML = wordsArray[0];
+console.log(hiddenWord);
+}
+
+document.addEventListener("keydown", function(event){
+    var letter = event.key;
+    lettersGuessed.push(letter);
+    console.log(lettersGuessed);
+})
