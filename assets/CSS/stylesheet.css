@@ -13,25 +13,21 @@ nav h1 {
   font-size: 40px;
 }
 
-main {
+body {
   background: rgb(216, 237, 238);
   background: linear-gradient(
     180deg,
     rgba(216, 237, 238, 1) 0%,
     rgba(52, 181, 178, 1) 80%
   );
-  height: calc(100vh);
+  background-repeat: no-repeat;
 }
 
 main h1 {
   margin-top: 0;
 }
 
-/* .blue {
-    border: solid 2px;
-} */
-
-.box {
+.box-border {
   height: 60vh;
   border: solid #9bc4bc 5px;
   border-radius: 10px;
