@@ -9,17 +9,21 @@ var wordsArray = [
   "array",
 ];
 
+var scoreBoard = {
+    wins: 0,
+    losses: 0,
+}
+
 // DOM ELEMENTS -------------------------------------------------
 var startBtnEl = document.getElementById("start-button");
 var timerEL = document.getElementById("timer");
 var currentWordEl = document.getElementById("hidden-word");
-var scoreBoardEl = document.getElementById("win-losses");
+var winsEl = document.getElementById("wins");
+var lossesEl = document.getElementById("losses");
 
 // VARIABLES -----------------------------------------------------
 var lettersGuessed = [];
 var toggle = "off";
-var wins = 0;
-var losses = 0;
 var hiddenWord = "";
 var stopTimer = false;
 
@@ -41,6 +45,20 @@ function displayWord() {
   }
 }
 
+function displayScore() {
+    if(scoreBoard.wins == 0){
+        winsEl.innerHTML = "Wins: ";
+    } else {
+        winsEl.innerHTML = "Wins: " + scoreBoard.wins;
+    }
+    if(scoreBoard.losses == 0){
+        lossesEl.innerHTML = "Losses: ";
+    } else {
+        lossesEl.innerHTML = "Losses: " + scoreBoard.losses;
+    }
+}
+displayScore();
+
 // EVENT LISTENERS -----------------------------------------------
 startBtnEl.addEventListener("click", function () {
     var timeLeft = 10;
@@ -55,12 +73,14 @@ startBtnEl.addEventListener("click", function () {
         clearInterval(timeInterval);
         currentWordEl.innerHTML = "YOU LOST!!!";
         toggle = "off";
-        losses++;
+        scoreBoard.losses++;
+        displayScore();
       } else if (stopTimer == true) {
         toggle = "off";
         clearInterval(timeInterval);
         stopTimer = false;
-        wins++;
+        scoreBoard.wins++;
+        displayScore();
       } else {
         timeLeft--;
       }
