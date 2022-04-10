@@ -1,3 +1,4 @@
+// ARRAYS AND OBJECTS -------------------------------------------
 var wordsArray = [
   "JavaScript",
   "variable",
@@ -8,10 +9,13 @@ var wordsArray = [
   "array",
 ];
 
+// DOM ELEMENTS -------------------------------------------------
 var startBtnEl = document.getElementById("start-button");
 var timerEL = document.getElementById("timer");
 var currentWordEl = document.getElementById("hidden-word");
+var scoreBoardEl = document.getElementById("win-losses");
 
+// VARIABLES -----------------------------------------------------
 var lettersGuessed = [];
 var toggle = "off";
 var wins = 0;
@@ -19,30 +23,6 @@ var losses = 0;
 var hiddenWord = "";
 var stopTimer = false;
 
-startBtnEl.addEventListener("click", function () {
-  var timeLeft = 10;
-  var index = Math.floor(Math.random() * wordsArray.length);
-  lettersGuessed = [];
-  toggle = "on";
-  hiddenWord = wordsArray[index];
-  displayWord();
-  var timeInterval = setInterval(function () {
-    timerEL.innerHTML = timeLeft + " seconds remaining";
-    if (timeLeft === 0) {
-      clearInterval(timeInterval);
-      currentWordEl.innerHTML = "YOU LOST!!!";
-      toggle = "off";
-      losses++;
-    } else if (stopTimer == true) {
-      toggle = "off";
-      clearInterval(timeInterval);
-      stopTimer = false;
-      wins++;
-    } else {
-      timeLeft--;
-    }
-  }, 1000);
-});
 
 function displayWord() {
   var hiddenWordBlank = "";
@@ -60,6 +40,32 @@ function displayWord() {
     stopTimer = true;
   }
 }
+
+// EVENT LISTENERS -----------------------------------------------
+startBtnEl.addEventListener("click", function () {
+    var timeLeft = 10;
+    var index = Math.floor(Math.random() * wordsArray.length);
+    lettersGuessed = [];
+    toggle = "on";
+    hiddenWord = wordsArray[index];
+    displayWord();
+    var timeInterval = setInterval(function () {
+      timerEL.innerHTML = timeLeft + " seconds remaining";
+      if (timeLeft === 0) {
+        clearInterval(timeInterval);
+        currentWordEl.innerHTML = "YOU LOST!!!";
+        toggle = "off";
+        losses++;
+      } else if (stopTimer == true) {
+        toggle = "off";
+        clearInterval(timeInterval);
+        stopTimer = false;
+        wins++;
+      } else {
+        timeLeft--;
+      }
+    }, 1000);
+  });
 
 document.addEventListener("keydown", function (event) {
   if (toggle == "on") {
