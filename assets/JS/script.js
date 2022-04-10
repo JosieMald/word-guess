@@ -29,32 +29,36 @@ var stopTimer = false;
 
 
 function displayWord() {
-  var hiddenWordBlank = "";
-  for (var i = 0; i < hiddenWord.length; i++) {
-    if (lettersGuessed.includes(hiddenWord[i])) {
-      hiddenWordBlank = hiddenWordBlank + " " + hiddenWord[i] + " ";
-    } else {
-      hiddenWordBlank = hiddenWordBlank + " _ ";
+    var hiddenWordBlank = "";
+    for (var i = 0; i < hiddenWord.length; i++) {
+        if (lettersGuessed.includes(hiddenWord[i])) {
+            hiddenWordBlank = hiddenWordBlank + " " + hiddenWord[i] + " ";
+        } else {
+            hiddenWordBlank = hiddenWordBlank + " _ ";
+        }
     }
-  }
-  currentWordEl.innerHTML = hiddenWordBlank;
-  var removedSpaces = hiddenWordBlank.split(" ").join("");
-  if (hiddenWord === removedSpaces) {
-    currentWordEl.innerHTML = "YOU WON!!!";
-    stopTimer = true;
-  }
+    currentWordEl.innerHTML = hiddenWordBlank;
+    var removedSpaces = hiddenWordBlank.split(" ").join("");
+    if (hiddenWord === removedSpaces) {
+        currentWordEl.innerHTML = "YOU WON!!!";
+        stopTimer = true;
+    }
 }
 
 function displayScore() {
+    localStorage.setItem("scoreBoard", JSON.stringify(scoreBoard))
+    var savedScoreBoard = JSON.parse(localStorage.getItem("scoreBoard"))
     if(scoreBoard.wins == 0){
         winsEl.innerHTML = "Wins: ";
     } else {
-        winsEl.innerHTML = "Wins: " + scoreBoard.wins;
+        winsEl.innerHTML = "Wins: " + savedScoreBoard.wins;
+        console.log(savedScoreBoard.wins);
     }
     if(scoreBoard.losses == 0){
         lossesEl.innerHTML = "Losses: ";
     } else {
-        lossesEl.innerHTML = "Losses: " + scoreBoard.losses;
+        lossesEl.innerHTML = "Losses: " + savedScoreBoard.losses;
+        console.log(savedScoreBoard.losses);
     }
 }
 displayScore();
@@ -97,6 +101,5 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-// 1. create element to display win and loses.
 // 2. Store those values in local storage.
 // 3. click event for clear local storage and clear values.
