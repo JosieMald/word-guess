@@ -28,7 +28,13 @@ This project was created using DOM manipulation and local storage.
 A game where a user can play a word guessing game by filling in the blanks. The game is timed and the user can see there total wins and losses on the screen.
 ```
 
+<!-- 
+Show the completed word for a few seconds before displaying the win or lost message, or display both
 
+And lastly, difficult modes...easy or hard
+Easy, show a few letters to get started
+Hard, leave it as is, don't show any letters
+ -->
 
 
 
